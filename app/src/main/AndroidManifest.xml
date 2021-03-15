@@ -3,13 +3,16 @@
     package="ussrfantom.com.example.focusstartandroid">
 
     <application
+        android:name=".App"
         android:allowBackup="false"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.FocusStartAndroid"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round">
-        <activity android:name=".MainActivity">
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".screens.start.StartActivity"></activity>
+        <activity android:name=".screens.welcome.WelcomeActivity" />
+        <activity android:name=".screens.launch.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

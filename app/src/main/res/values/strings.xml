@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Focus Start Android</string>
+    <string name="welcome_start_btn">Старт</string>
 </resources>
