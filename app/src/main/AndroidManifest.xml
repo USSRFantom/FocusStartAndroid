@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ussrfantom.com.example.focusstartandroid">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="false"
@@ -10,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screens.start.StartActivity"></activity>
+        <activity android:name=".screens.currency.CurrencyActivity"></activity>
+        <activity android:name=".screens.start.StartActivity" />
         <activity android:name=".screens.welcome.WelcomeActivity" />
         <activity android:name=".screens.launch.LaunchActivity">
             <intent-filter>
