@@ -12,7 +12,7 @@
 
     </androidx.viewpager.widget.ViewPager>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button_start"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
@@ -21,10 +21,13 @@
         android:layout_marginStart="32dp"
         android:minWidth="200dp"
         android:textStyle="bold"
+        android:background="@drawable/bg_start_btn"
+        android:text="@string/welcome_start_btn"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/welcome_start_btn"
+
 
         tools:ignore="MissingConstraints" />
 
