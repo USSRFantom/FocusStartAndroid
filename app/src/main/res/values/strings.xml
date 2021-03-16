@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Focus Start Android</string>
     <string name="welcome_start_btn">Старт</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_title_1">Курс валют</string>
+    <string name="welcome_title_2">Обмен валют</string>
+    <string name="welcome_title_3">Список валют</string>
+    <string name="welcome_subtitle_1">Мониторь курс валют</string>
+    <string name="welcome_subtitle_2">Меняй валюту на другую</string>
+    <string name="welcome_subtitle_3">Изучай все возможные валюты</string>
 </resources>
