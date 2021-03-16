@@ -9,4 +9,8 @@
     <string name="welcome_subtitle_1">Мониторь курс валют</string>
     <string name="welcome_subtitle_2">Меняй валюту на другую</string>
     <string name="welcome_subtitle_3">Изучай все возможные валюты</string>
+    <string name="Denomination">Номинал</string>
+    <string name="Name">Название</string>
+    <string name="Cost">Стоимость</string>
+    <string name="Previous">Предыдущая стоимость</string>
 </resources>
