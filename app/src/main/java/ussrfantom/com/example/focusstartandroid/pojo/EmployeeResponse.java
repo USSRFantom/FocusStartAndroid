@@ -10,6 +10,10 @@ public class EmployeeResponse {
     @Expose
     private List<Valute> response = null;
 
+    public EmployeeResponse(List<Valute> valuteList) {
+        this.response = valuteList;
+    }
+
 
     public void setResponse(List<Valute> response) {
         this.response = response;

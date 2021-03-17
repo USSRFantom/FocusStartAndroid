@@ -8,11 +8,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import ussrfantom.com.example.focusstartandroid.R;
 import ussrfantom.com.example.focusstartandroid.adapter.EmployeeAdapter;
-import ussrfantom.com.example.focusstartandroid.pojo.Valute;
+import ussrfantom.com.example.focusstartandroid.api.ApiFactory;
+import ussrfantom.com.example.focusstartandroid.api.ApiServise;
+import ussrfantom.com.example.focusstartandroid.pojo.EmployeeResponse;
 
 public class CurrencyActivity extends AppCompatActivity {
 
@@ -25,9 +29,32 @@ public class CurrencyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_currency);
         recyclerViewValute = findViewById(R.id.recyclerCiewCurrency);
         adapter = new EmployeeAdapter();
+        adapter.setValutes(new ArrayList<>());
         recyclerViewValute.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewValute.setAdapter(adapter);
-        List<Valute> valutes = new ArrayList<>();
+        ApiFactory apiFactory = ApiFactory.getInstance();
+        ApiServise apiServise = apiFactory.getApiService();
+        apiServise.getEmployees()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<EmployeeResponse>() {
+                    @Override
+                    public void accept(EmployeeResponse employeeResponse) throws Exception {
+                        adapter.setValutes(employeeResponse.getResponse());
+                        Log.i("123123123121", "Данные получены");
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Log.i("123123123121", throwable.getMessage());
+                    }
+                });
+
+
+
+
+
+        /*List<Valute> valutes = new ArrayList<>();
         Valute valute1 = new Valute();
         Valute valute2 = new Valute();
         valute1.setName("ghjgjjggg");
@@ -42,6 +69,9 @@ public class CurrencyActivity extends AppCompatActivity {
         valutes.add(valute2);
         adapter.setValutes(valutes);
         Log.i("9999999", String.valueOf(valutes.size()));
+
+
+         */
 
 
     }
