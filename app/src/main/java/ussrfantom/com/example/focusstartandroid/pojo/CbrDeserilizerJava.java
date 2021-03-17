@@ -27,10 +27,6 @@ public class CbrDeserilizerJava implements JsonDeserializer<EmployeeResponse> {
     @Override
     public EmployeeResponse deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String date = gson.fromJson(jsonObject.get("Date"), String.class);
-        String previousDate = gson.fromJson(jsonObject.get("PreviousDate"), String.class);
-        String previousURL = gson.fromJson(jsonObject.get("PreviousURL"), String.class);
-        String timestamp = gson.fromJson(jsonObject.get("Timestamp"), String.class);
 
         JsonElement valuteElement = jsonObject.get("Valute");
         List<Valute> valuteList = parseValuteList(valuteElement.getAsJsonObject());

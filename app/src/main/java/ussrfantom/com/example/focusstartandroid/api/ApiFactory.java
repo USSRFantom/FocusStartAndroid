@@ -1,9 +1,13 @@
 package ussrfantom.com.example.focusstartandroid.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ussrfantom.com.example.focusstartandroid.pojo.CbrDeserilizerJava;
+import ussrfantom.com.example.focusstartandroid.pojo.EmployeeResponse;
 
 public class ApiFactory {
     private static ApiFactory apiFactory;
@@ -12,8 +16,12 @@ public class ApiFactory {
 
 
     private ApiFactory() {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(EmployeeResponse.class, new CbrDeserilizerJava());
+        Gson gson = builder.create();
+        GsonConverterFactory factory = GsonConverterFactory.create(gson);
         retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(factory)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(BASE_URL)
                 .build();
