@@ -8,7 +8,7 @@ import java.util.List;
 public class EmployeeResponse {
     @SerializedName("Valute")
     @Expose
-    private List<Valute> response = null;
+    public List<Valute> response = null;
 
     public EmployeeResponse(List<Valute> valuteList) {
         this.response = valuteList;

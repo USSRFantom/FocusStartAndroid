@@ -1,6 +1,5 @@
 package ussrfantom.com.example.focusstartandroid.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +16,24 @@ import ussrfantom.com.example.focusstartandroid.pojo.Valute;
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder> {
 
     private List<Valute> valutes;
+    private OnPosClickListener onPosClickListener;
 
     public List<Valute> getValutes() {
         return valutes;
     }
 
+
     public void setValutes(List<Valute> valutes) {
         this.valutes = valutes;
-        Log.i("12312312312312", String.valueOf(valutes.size()));
         notifyDataSetChanged();
+    }
+
+    public interface OnPosClickListener {
+        void onPosClick(int position);
+    }
+
+    public void setOnPosClickListener(OnPosClickListener onPosClickListener) {
+        this.onPosClickListener = onPosClickListener;
     }
 
     @NonNull
@@ -65,6 +73,14 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
             textViewName = itemView.findViewById(R.id.textViewName);
             textViewValue = itemView.findViewById(R.id.textViewValue);
             textViewPrevious = itemView.findViewById(R.id.textViewPrevious);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onPosClickListener != null) {
+                        onPosClickListener.onPosClick(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 }

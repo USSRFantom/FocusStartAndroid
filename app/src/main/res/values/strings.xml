@@ -13,4 +13,10 @@
     <string name="Name">Название</string>
     <string name="Cost">Стоимость</string>
     <string name="Previous">Предыдущая стоимость</string>
+    <string name="convert_rubles">Конвертировать в рубли</string>
+    <string name="exchangeable_currency">Обмениваемая валюта</string>
+    <string name="ru">Рубли</string>
+    <string name="enter_the_amount">Введите сумму</string>
+    <string name="convert">Конвертировать</string>
+    <string name="you_get">Вы получите:</string>
 </resources>
